@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # this is some random text to create a conflict
+=======
+afpw jfpafkfmlfkjvji;gadsf;smnvifoadszhtjyhjtrffs
+>>>>>>> 6b2368c57b48298107d950b3389a654045324b4e
 "Data, analysis script and associated files for:"			
 "Clark TD, Raby GD, Roche DG, Binning SA, Speers-Roesch B, Jutfelt F, Sundin J (in prep) Ocean acidification does not impair the behaviour of coral reef fishes"			
  			
