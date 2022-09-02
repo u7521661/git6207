@@ -133,12 +133,14 @@ Second, drop out irrelevant columns and check that there are no spelling issues 
 
 ```{r summaryTab}
 library(flextable)
+library(tidyverse)
 # Drop irrelevant columns
-
+data2 <- data%>%select(-9) 
 # Check spelling in species and treatment but also generate a summary table
-
+unique(data$species) #there's no spelling errors.
 # Use flextable to render the summary table in a tidy format
-
+summ <- flextable(data %>% summarise(sd = sd(activity),mean = mean(activity)))
+summ
 ```
 
 **STOP**: Before moving on, it's a good time to establish some good *GitHub* practices. You have just done an important step. It's time to save this file, stage it and commit it so that you have a record. Push these changes up using *GitHub Desktop*. It's important to do this frequently. It's probably not needed after every line of code, but it's good to do this when you have completed an important coding step. Of course, there's no harm in doing it more often. It will provide fine-scale tracking for you!
@@ -147,6 +149,7 @@ library(flextable)
 
 ```{r answer5, echo=TRUE, eval=FALSE}
 ## Write your answer here....remember to use '#" in front of your text.
+#If the code shows red highlight it represents the original code in github cloud, and the green one represents the local code that has not been uploaded to cloud.
 ```
 
 # **Task 5**
@@ -156,8 +159,9 @@ Ignoring figures can be important because they take up quite a lot of space in y
 `.gitignore` files are used to control what *Git* tracks and what it ignores. You should have created a new folder path: `output/figures/`. Write some code now to create a pretty figure using ggplot that shows the difference between control and acidification treatments for each of the fish species in the data set:
 
 ```{r, prettyfig, fig.align='center', fig.cap="add a legend here"}
+library(ggplot2)
 # ggplot figure showing mean activity for each treatment (Control, OA) for each species.
-
+ggplot(data = data2, aes(x=treatment,y =activity,fill =species, colour = species ))+geom_boxplot()+geom_jitter()
 
 ```
 
@@ -169,13 +173,14 @@ Now that you have the figure you may also want to write / save it as a separate 
 
 ```{r, savefig}
 # Use ggsave to save the figure
-
+ggsave("D:/git6207/git6207/output/figures")
 ```
 
 >**Question 6**: Given that you have added `output/figures/` to your `.gitignore` file describe what you notice about what you see in *GitHub Desktop*. 
 
 ```{r}
 ## Write your answer here
+
 ```
 
 Last question for this task. I promise! It's important to think very carefully about what you track and ignore.
